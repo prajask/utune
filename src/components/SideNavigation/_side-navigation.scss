@@ -1,0 +1,6 @@
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/theme' as *;
+
+.side-navigation{
+    border-right: 1px solid $border-subtle-01;
+}

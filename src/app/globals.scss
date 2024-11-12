@@ -1,0 +1,82 @@
+@use '@carbon/react';
+@use '@carbon/react/scss/breakpoint' as *;
+@use '@carbon/react/scss/colors';
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+@use '@/app/community/community-page';
+@use '@/app/datasets/datasets-page';
+@use '@/app/models/models-page';
+@use '@/app/resources/resources-page';
+@use '@/app/tutorials/tutorials-page';
+
+@use '@/components/TopNav/top-nav';
+@use '@/components/SideNavigation/side-navigation';
+@use '@/components/PIICompliance/piicompliance';
+@use '@/components/ModelNutritionSummary/model-nutrition-summary';
+@use '@/components/Ratings/ratings';
+@use '@/components/CreationDate/creation-date';
+@use '@/components/CardMeta/card-meta';
+@use '@/components/Card/card';
+@use '@/components/CardContent/card-content';
+@use '@/components/TagsList/tags-list';
+
+// overriding header tooltip bg color
+// because the navigation is dark themed while the content is white
+// which means the dark theme tooltip bg blends into the white content bg
+.cds--header__global .cds--popover-content {
+  background-color: colors.$gray-20;
+}
+
+.cds--header__global .cds--popover-caret {
+  background-color: colors.$gray-20;
+}
+
+.cds--content {
+  margin-top: 3rem;
+  padding: 0;
+  background: var(--cds-background);
+}
+
+.page__banner {
+  padding: $spacing-07 32px $spacing-07 32px;
+  border-bottom: 1px solid $border-subtle-01;
+  margin-left: -32px;
+  margin-right: -32px;
+}
+
+.page__heading {
+  padding-top: $spacing-05;
+  @include type-style('productive-heading-05');
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: $spacing-03;
+}
+
+.page__content{
+  margin: $spacing-09 0;
+}
+
+.card__grid{
+  row-gap: $spacing-05;
+}
+
+.cds--content .cds--css-grid {
+  max-width: 100%;
+  @include breakpoint(md) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/// Remove overrides once Carbon bugs are fixed upstream.
+/// Need grid option to not add page gutters at large viewports, to also use when nesting grids
+/// @link https://github.com/carbon-design-system/carbon/issues/2792
+@media (min-width: 42rem) {
+  .cds--grid--no-gutter {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

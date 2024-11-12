@@ -1,0 +1,15 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+
+.tags-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $spacing-03;
+    align-items: center;
+    justify-content: start;
+}
+
+.tags-list--tag{
+    margin: 0;
+}

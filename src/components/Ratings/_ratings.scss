@@ -1,0 +1,9 @@
+@use '@carbon/react/scss/spacing' as *;
+
+.ratings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: $spacing-03;
+}
