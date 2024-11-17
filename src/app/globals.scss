@@ -10,6 +10,8 @@
 @use '@/app/models/models-page';
 @use '@/app/resources/resources-page';
 @use '@/app/tutorials/tutorials-page';
+@use '@/app/projects/projects-page';
+@use '@/app/playground/playground-page';
 
 @use '@/components/TopNav/top-nav';
 @use '@/components/SideNavigation/side-navigation';
@@ -21,6 +23,11 @@
 @use '@/components/Card/card';
 @use '@/components/CardContent/card-content';
 @use '@/components/TagsList/tags-list';
+@use '@/components/PlaygroundLink/playground-link';
+@use '@/components/ProjectCard/project-card';
+@use '@/components/HyperparameterDescription/hyperparameter-description';
+@use '@/components/ModelNutrition/model-nutrition';
+@use '@/components/NutritionLabel/nutrition-label';
 
 // overriding header tooltip bg color
 // because the navigation is dark themed while the content is white
@@ -41,18 +48,36 @@
 
 .page__banner {
   padding: $spacing-07 32px $spacing-07 32px;
-  border-bottom: 1px solid $border-subtle-01;
   margin-left: -32px;
   margin-right: -32px;
+  min-height: 170px;
 }
 
-.page__heading {
+.page__banner--heading {
   padding-top: $spacing-05;
   @include type-style('productive-heading-05');
   display: flex;
   align-items: center;
   justify-content: start;
   gap: $spacing-03;
+}
+
+.page__banner--heading-with-tabs{
+  margin-bottom: $spacing-07;
+}
+
+.tabs-group{
+  padding-left: $spacing-05;
+}
+
+.tab-panel--content{
+  margin: $spacing-09 0;
+  gap: $spacing-07;
+}
+
+.tabs-page{
+  margin-left: -$spacing-07;
+  margin-top: -40px;
 }
 
 .page__content{

@@ -1,0 +1,33 @@
+@use '@carbon/react/scss/spacing' as *;
+
+@use './overrides';
+
+.hyperparameter-description {
+    background: none;
+  }
+  
+  .hyperparameter-description--header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: $spacing-05;
+  }
+
+.hyperparameter-description--header--button{
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    background: none;
+}
+  
+  .hyperparameter-description--content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in;
+  }
+  
+  .hyperparameter-description--content p {
+    margin: $spacing-05 0;
+  }
+  

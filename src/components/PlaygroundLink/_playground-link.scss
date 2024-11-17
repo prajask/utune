@@ -1,0 +1,37 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+
+.playground-link{
+    margin-left: -16px;
+    border: 1px solid $border-tile-01;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: $spacing-05;
+}
+
+.playground-link--content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: $spacing-13;
+}
+
+.playground-link--projects:hover{
+    background-image: linear-gradient(to top, #CCB1FA 13%, #E3D6FC 70%);
+}
+
+.playground-link--models:hover{
+    background-image: linear-gradient(to top, #65D2D1 13%, #9FEAED 70%);
+}
+
+.playground-link--datasets:hover{
+    background-image: linear-gradient(to top, #9FC0FA 13%, #CDDDFC 70%);
+}
+
+.playground-link--tutorials:hover{
+    background-image: linear-gradient(to top, #83C8FA 13%, #BEE5FC 70%);
+}

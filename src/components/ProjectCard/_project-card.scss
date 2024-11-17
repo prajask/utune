@@ -1,0 +1,6 @@
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+
+.project-card:hover{
+    background-image: linear-gradient(to top, #CCB1FA 13%, #E3D6FC 70%);
+}

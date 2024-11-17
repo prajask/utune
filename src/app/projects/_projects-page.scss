@@ -1,0 +1,11 @@
+@use '@carbon/react/scss/spacing' as *;
+
+@use './overrides.scss';
+
+.page__banner--projects{
+    border-bottom: 2px solid #CCB1FA;
+}
+
+.hyperparameters{
+    gap: $spacing-07;
+}

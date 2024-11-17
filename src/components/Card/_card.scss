@@ -1,5 +1,5 @@
-@use '@carbon/react/scss/spacing' as *;
 @use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
 
 @use './overrides.scss';
 
@@ -12,4 +12,12 @@
     align-items: start;
     justify-content: start;
     gap: $spacing-05;
+  }
+
+.card--models:hover{
+    background-image: linear-gradient(to top, #65D2D1 13%, #9FEAED 70%);
+}
+
+.card--datasets:hover{
+    background-image: linear-gradient(to top, #9FC0FA 13%, #CDDDFC 70%);
 }

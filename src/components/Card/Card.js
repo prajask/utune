@@ -6,8 +6,8 @@ import CardContent from '../CardContent/CardContent';
 const Card = (props) => {
   return (
     <ClickableTile
-      className="card"
-      href={props.data.nutritional_data ? `/datasets/${props.data.id}` : `/models/${props.data.id}`}
+      className={`card ${props.data.nutritional_info ? "card--models" : "card--datasets"}`}
+      href={props.data.nutritional_info ? `/models/${props.data.id}` : `/datasets/${props.data.id}`}
       renderIcon={ArrowRight}
     >
       <CardContent

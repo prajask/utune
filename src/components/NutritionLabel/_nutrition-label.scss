@@ -1,0 +1,6 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+
+.nutrition-label{
+    border: 1px solid $border-subtle-01;
+}

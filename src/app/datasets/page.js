@@ -31,7 +31,7 @@ import {
 
     return (
       <Grid fullWidth>
-        <Column lg={16} md={8} sm={4} className="page__banner">
+        <Column lg={16} md={8} sm={4} className="page__banner page__banner--datasets">
           <Breadcrumb noTrailingSlash>
             <BreadcrumbItem>
               <a href="/">Playground</a>
@@ -40,7 +40,7 @@ import {
               <a href="/">Datasets</a>
             </BreadcrumbItem>
           </Breadcrumb>
-          <h1 className="page__heading">
+          <h1 className="page__banner--heading">
             <Analytics
               size={32}
             />

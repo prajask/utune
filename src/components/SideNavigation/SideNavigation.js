@@ -30,7 +30,7 @@ const SideNavigation = () => {
           large
         >
           <SideNavMenuItem
-            href="/"
+            href="/projects"
           >
             Projects
           </SideNavMenuItem>
