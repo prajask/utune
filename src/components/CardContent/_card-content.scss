@@ -1,5 +1,6 @@
 @use '@carbon/react/scss/spacing' as *;
 @use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
 
 .card-content{
     background: none;
@@ -13,17 +14,18 @@
 }
 
 .card--header{
-    // max-height: 2.3rem;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    @include type-style('productive-heading-02');
 }
 
 .card--description{
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* Limit to 3 lines */
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    @include type-style('body-02');
 }

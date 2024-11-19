@@ -37,7 +37,7 @@ import {
               <a href="/">Playground</a>
             </BreadcrumbItem>
             <BreadcrumbItem isCurrentPage>
-              <a href="/">Datasets</a>
+              <a href="/datasets">Datasets</a>
             </BreadcrumbItem>
           </Breadcrumb>
           <h1 className="page__banner--heading">

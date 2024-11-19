@@ -1,0 +1,14 @@
+@use '@carbon/react/scss/spacing' as *;
+
+.nutrition-label-guide{
+    padding-top: $spacing-05;
+}
+
+.nutrition-label-guide--list-wrapper{
+    padding-top: $spacing-03;
+    padding-left: $spacing-06;
+}
+
+.nutrition-label-guide--list-item{
+    padding-top: $spacing-03;
+}

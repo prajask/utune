@@ -15,7 +15,7 @@ import {
 } from '@carbon/react';
 
 import {
-    Analytics
+    ModelAlt
 } from '@carbon/icons-react';
 
 import ModelNutrition from '@/components/ModelNutrition/ModelNutrition';
@@ -42,16 +42,16 @@ const ModelDetails = ({ params }) => {
                     <a href="/">Playground</a>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
-                    <a href="/">Models</a>
+                    <a href="/models">Models</a>
                 </BreadcrumbItem>
                 <BreadcrumbItem isCurrentPage>
-                    <a href="/">{model.name}</a>
+                    <a href={`/models/${model.id}`}>{model.name}</a>
                 </BreadcrumbItem>
             </Breadcrumb>
 
             <h1 className="page__banner--heading page__banner--heading-with-tabs">
-                <Analytics
-                    size={24}
+                <ModelAlt
+                    size={32}
                 />
                 {model.name}
             </h1>
@@ -88,7 +88,9 @@ const ModelDetails = ({ params }) => {
                             </Column>
 
                             <Column md={8} lg={16} sm={8}>
-                                <ModelNutrition/>
+                                <ModelNutrition
+                                    nutritionalInfo={model.nutritional_info}
+                                />
                             </Column>
                         </Grid>
                     </TabPanel>

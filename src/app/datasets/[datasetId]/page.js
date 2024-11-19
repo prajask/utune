@@ -42,10 +42,10 @@ const DatasetDetails = ({ params }) => {
                     <a href="/">Playground</a>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
-                    <a href="/">Datasets</a>
+                    <a href="/datasets">Datasets</a>
                 </BreadcrumbItem>
                 <BreadcrumbItem isCurrentPage>
-                    <a href="/">{dataset.name}</a>
+                    <a href={`/datasets/${dataset.id}`}>{dataset.name}</a>
                 </BreadcrumbItem>
             </Breadcrumb>
 

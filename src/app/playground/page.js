@@ -7,12 +7,7 @@ import {
     Grid,
     Column,
     Breadcrumb,
-    BreadcrumbItem,
-    Tabs,
-    Tab,
-    TabList,
-    TabPanels,
-    TabPanel
+    BreadcrumbItem
 } from '@carbon/react';
 
 import {
@@ -61,39 +56,28 @@ const page = () => {
     <Grid fullWidth>
         <Column lg={16} md={8} sm={4} className="page__banner page__banner--playground">
             <Breadcrumb noTrailingSlash>
-            <BreadcrumbItem>
-                <a href="/">Playground</a>
-            </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <a href="/">Playground</a>
+                </BreadcrumbItem>
             </Breadcrumb>
+
             <h1 className="page__banner--heading heading_before_tabs">
-            <IbmGranite
-                size={24}
-            />
-            Playground
+                <IbmGranite
+                    size={24}
+                />
+                
+                Playground
             </h1>
         </Column>
         
         <Column lg={16} md={8} sm={4} className='page__content'>
             <Grid fullWidth>
-                {/* <Column lg={4} md={4} sm={4}>
-                    <PlaygroundLink/>
-                </Column>
-
-                <Column lg={4} md={4} sm={4}>
-                    <PlaygroundLink/>
-                </Column>
-
-                <Column lg={4} md={4} sm={4}>
-                    <PlaygroundLink/>
-                </Column>
-
-                <Column lg={4} md={4} sm={4}>
-                    <PlaygroundLink/>
-                </Column> */}
                 {
                     links.map(
                         (link) => (
-                            <Column lg={4} md={4} sm={4}>
+                            <Column lg={4} md={4} sm={4}
+                                key={link.title}
+                            >
                                 <PlaygroundLink
                                     link={link}
                                 />

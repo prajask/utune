@@ -28,6 +28,12 @@
 @use '@/components/HyperparameterDescription/hyperparameter-description';
 @use '@/components/ModelNutrition/model-nutrition';
 @use '@/components/NutritionLabel/nutrition-label';
+@use '@/components/NutritionParameterList/nutrition-parameter-list';
+@use '@/components/NutritionParameter/nutrition-parameter';
+@use '@/components/NutritionLabelGuide/nutrition-label-guide';
+@use '@/components/ProjectBaseModel/project-base-model';
+@use '@/components/ProjectDatasetsList/project-datasets-list';
+@use '@/components/ProjectAddDataset/project-add-dataset';
 
 // overriding header tooltip bg color
 // because the navigation is dark themed while the content is white
@@ -46,10 +52,14 @@
   background: var(--cds-background);
 }
 
+.cds--tab-content{
+  padding-right: 0;
+}
+
 .page__banner {
-  padding: $spacing-07 32px $spacing-07 32px;
-  margin-left: -32px;
-  margin-right: -32px;
+  padding: $spacing-07;
+  margin-left: -$spacing-07;
+  margin-right: -$spacing-07;
   min-height: 170px;
 }
 
@@ -66,6 +76,11 @@
   margin-bottom: $spacing-07;
 }
 
+.page__banner--buttons{
+  padding-top: $spacing-05;
+  justify-content: end;
+}
+
 .tabs-group{
   padding-left: $spacing-05;
 }
@@ -73,6 +88,19 @@
 .tab-panel--content{
   margin: $spacing-09 0;
   gap: $spacing-07;
+
+  .cds--css-grid-column{
+    margin-right: 0;
+  }
+
+  h3{
+    @include type-style('productive-heading-02');
+    margin-bottom: $spacing-03;
+  }
+
+  p{
+    @include type-style('body-02');
+  }
 }
 
 .tabs-page{

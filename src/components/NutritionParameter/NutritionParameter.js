@@ -1,14 +1,19 @@
-const NutritionParameter = () => {
+const NutritionParameter = (props) => {
   return (
     <li
-        className="nutritiion-parameter"
+        className="nutrition-parameter"
     >
         <h6>
-            Parameter
+            {props.parameter.title}
         </h6>
 
         <p>
-            Value
+            {
+              typeof props.parameter.value === "boolean"
+              ? props.parameter.value ? "Yes" : "No"
+              : props.parameter.value
+            
+            }
         </p>
     </li>
   )

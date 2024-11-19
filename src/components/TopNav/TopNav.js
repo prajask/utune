@@ -29,7 +29,9 @@ const TopNav = () => (
         <Link
           href="/" passHref legacyBehavior
         >
-          <HeaderName>
+          <HeaderName
+            prefix=''
+          >
             U-Tune
           </HeaderName>
         </Link>

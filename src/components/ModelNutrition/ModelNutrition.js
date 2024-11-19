@@ -4,13 +4,20 @@ import {
 } from "@carbon/react";
 
 import NutritionLabel from "../NutritionLabel/NutritionLabel";
+import NutritionLabelGuide from "../NutritionLabelGuide/NutritionLabelGuide";
 
 
-const ModelNutrition = () => {
+const ModelNutrition = (props) => {
   return (
     <Grid fullWidth>
-        <Column lg={8} md={8} sm={8}>
-            <NutritionLabel/>
+        <Column lg={6} md={8} sm={8}>
+            <NutritionLabel
+              nutritionalInfo={props.nutritionalInfo}
+            />
+        </Column>
+        
+        <Column lg={{offset: 7, span: 9}} md={8} sm={8}>
+          <NutritionLabelGuide />
         </Column>
     </Grid>
   )

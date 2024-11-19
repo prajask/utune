@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import {
@@ -12,17 +11,9 @@ import {
 } from '@carbon/react';
 
 import {
-    IbmGranite
+    Tuning
 } from '@carbon/icons-react';
 
-import {
-    SupplyChainOptimization_01,
-    Control,
-    Container,
-    DataSet
-} from '@carbon/pictograms-react';
-
-import PlaygroundLink from '@/components/PlaygroundLink/PlaygroundLink';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 
 const page = () => {
@@ -42,17 +33,20 @@ const page = () => {
     <Grid fullWidth>
         <Column lg={16} md={8} sm={4} className="page__banner page__banner--projects">
             <Breadcrumb noTrailingSlash>
-            <BreadcrumbItem>
-                <a href="/">Playground</a>
-            </BreadcrumbItem>
-            <BreadcrumbItem isCurrentPage>
-                <a href="/projects">Projects</a>
-            </BreadcrumbItem>
+              <BreadcrumbItem>
+                  <a href="/">Playground</a>
+              </BreadcrumbItem>
+
+              <BreadcrumbItem isCurrentPage>
+                  <a href="/projects">Projects</a>
+              </BreadcrumbItem>
             </Breadcrumb>
+
             <h1 className="page__banner--heading heading_before_tabs">
-                <IbmGranite
+                <Tuning
                     size={24}
                 />
+                
                 Projects
             </h1>
         </Column>
