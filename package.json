@@ -10,6 +10,7 @@
     "format:diff": "prettier --list-different \"**/*.{js,md,scss}\""
   },
   "dependencies": {
+    "@carbon/charts-react": "^1.22.3",
     "@carbon/pictograms-react": "^11.68.0",
     "@carbon/react": "^1.70.0",
     "eslint": "8.44.0",

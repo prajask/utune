@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import {
     Grid,
@@ -16,7 +16,7 @@ import {
     Form,
     Button,
     TextInput,
-    IconButton
+    ProgressBar
 } from '@carbon/react';
 
 import {
@@ -30,10 +30,13 @@ import {
     Tools
 } from '@carbon/icons-react';
 
+import '@carbon/charts-react/styles.css';
+
 import HyperparameterDescription from '@/components/HyperparameterDescription/HyperparameterDescription';
 import ProjectBaseModel from '@/components/ProjectBaseModel/ProjectBaseModel';
 import ProjectDatasetsList from '@/components/ProjectDatasetsList/ProjectDatasetsList';
 import ProjectAddDataset from '@/components/ProjectAddDataset/ProjectAddDataset';
+import { LollipopChart } from '@carbon/charts-react';
 
 const ProjectDetails = ({ params }) => {
 
@@ -104,7 +107,70 @@ const ProjectDetails = ({ params }) => {
         }
     }
 
-    const [runEnabled, setRunEnabled] = useState(false);
+    const [runEnabled, setRunEnabled] = useState(true);
+    const [running, setRunning] = useState(false);
+
+    const [progress, setProgress] = useState(0);
+    const [chartData, setChartData] = useState([]);
+    const progressRef = useRef(progress);
+    const chartDataRef = useRef(chartData);
+    const intervalIdRef = useRef(null);
+
+      const chartOptions = {
+        title: 'Accuracy per Epoch',
+        axes: {
+            bottom: {
+                mapsTo: 'group',
+                scaleType: 'labels',
+            },
+            left: {
+                mapsTo: 'value',
+                scaleType: 'linear',
+            },
+        },
+        height: '400px',
+      }
+    
+      useEffect(() => {
+        if(running){
+            intervalIdRef.current = setInterval(fineTuningProgress, 1000);
+        }
+
+        return () => {
+            if(intervalIdRef.current) clearInterval(intervalIdRef.current);
+        }
+
+      }, [running])
+
+      function fineTuningProgress(){
+        setProgress(
+            (prevProgress) => {
+                const newProgress = prevProgress + 10;
+                if (newProgress >= 100) {
+                    clearInterval(intervalIdRef.current);
+                    setRunning(false);
+                    setRunEnabled(true);
+                    return 100;
+                }
+                return newProgress;
+            }
+        );
+
+        setChartData((prevData) => {
+            const newValue = Math.round(Math.random() * 100);
+            return [...prevData, { group: `Epoch ${prevData.length + 1}`, value: newValue }];
+        });
+      }
+
+      useEffect(() => {
+        console.log(progress);
+        console.log(chartData);
+      }, [progress, chartData])
+
+      function fineTune(){
+        setRunning(true);
+        setRunEnabled(false);
+      }
 
     const hyperparameters = [
         {
@@ -228,8 +294,8 @@ const ProjectDetails = ({ params }) => {
                         kind='secondary' 
                         renderIcon={Tools}
                         iconDescription="Fine Tune with Selected Settings"
-                        onClick={() => {}} 
-                        disabled={runEnabled}
+                        onClick={fineTune} 
+                        disabled={!runEnabled}
                     >
                         Run
                     </Button>
@@ -247,12 +313,23 @@ const ProjectDetails = ({ params }) => {
                     className="tabs-group"
                 >
                     <Tab>Overview</Tab>
+                    
                     <Tab>Test</Tab>
+                    
                     <Tab>Hyperparameters</Tab>
+                    
                     <Tab>Iterations</Tab>
+
+                    {
+                        running && 
+                        <Tab>
+                            Status
+                        </Tab>
+                    }
                 </TabList>
 
                 <TabPanels>
+                    {/* Overview Panel */}
                     <TabPanel>
                         <Grid
                             className="tab-panel--content"
@@ -338,9 +415,11 @@ const ProjectDetails = ({ params }) => {
                         </Grid>
                     </TabPanel>
 
+                    {/* Test Panel */}
                     <TabPanel>
                     </TabPanel>
 
+                    {/* Hyperparameters Panel */}
                     <TabPanel>
                         <Grid
                             className="tab-panel--content hyperparameters"
@@ -365,12 +444,40 @@ const ProjectDetails = ({ params }) => {
                         </Grid>
                     </TabPanel>
 
+                    {/* Iterations Panel */}
                     <TabPanel>
                         <Grid
                             className="tab-panel--content"
                         >
                         </Grid>
                     </TabPanel>
+
+                    {/* Status Panel */}
+                    {
+                        running &&
+                        <TabPanel>
+                            <Grid
+                                className="tab-panel--content"
+                            >
+                                <Column lg={16}
+                                >
+                                    <ProgressBar
+                                        label="Fine-Tuning Progress"
+                                        value={progress}
+                                        max={100}
+                                    />
+                                </Column>
+
+                                <Column lg={16}
+                                >
+                                    <LollipopChart
+                                        data={chartData}
+                                        options={chartOptions}
+                                    />
+                                </Column>
+                            </Grid>
+                        </TabPanel>
+                    }
                 </TabPanels>
             </Tabs>
         </Column>
