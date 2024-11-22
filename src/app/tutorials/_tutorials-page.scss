@@ -1,0 +1,28 @@
+@use '@carbon/react';
+@use '@carbon/react/scss/breakpoint' as *;
+@use '@carbon/react/scss/colors';
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+.page__banner--heading-container1{
+    padding-top: $spacing-05;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page__banner--heading1{
+    @include type-style('productive-heading-05');
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: $spacing-03;
+}
+
+.projects-icon-button1{
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

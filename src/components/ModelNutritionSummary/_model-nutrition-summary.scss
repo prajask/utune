@@ -1,4 +1,6 @@
 @use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/theme' as *;
 
 .nutrition_summary{
     display: flex;
@@ -14,4 +16,12 @@
     align-items: center;
     justify-content: start;
     gap: $spacing-03;
+}
+
+.nutrition-parameter--title{
+    color: $text-secondary;
+}
+
+.nutrition-parameter--value{
+    @include type-style('heading-compact-01');
 }

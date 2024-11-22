@@ -1,3 +1,8 @@
-.page__banner--playground{
-    border-bottom: 2px solid #d5e5ff;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+
+.explore-section--heading{
+    padding-top: $spacing-09;
+    padding-bottom: $spacing-05;
+    @include type-style('productive-heading-04');
 }

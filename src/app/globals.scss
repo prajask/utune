@@ -25,6 +25,8 @@
 @use '@/components/TagsList/tags-list';
 @use '@/components/PlaygroundLink/playground-link';
 @use '@/components/ProjectCard/project-card';
+@use '@/components/NewProjectCard/new-project-card';
+@use '@/components/ProjectLastUpdate/project-last-update';
 @use '@/components/HyperparameterDescription/hyperparameter-description';
 @use '@/components/ModelNutrition/model-nutrition';
 @use '@/components/NutritionLabel/nutrition-label';
@@ -60,7 +62,15 @@
   padding: $spacing-07;
   margin-left: -$spacing-07;
   margin-right: -$spacing-07;
-  min-height: 170px;
+  min-height: 198px;
+  border-bottom: 2px solid $border-subtle-02;
+}
+
+.page__banner--heading-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .page__banner--heading {
@@ -81,12 +91,33 @@
   justify-content: end;
 }
 
+.page__banner--heading-button-set{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: $spacing-03;
+}
+
+.page__banner--description{
+  padding: $spacing-05 0;
+  @include type-style('helper-text-02');
+  color: $text-secondary;
+}
+
+.page--loading{
+  width: 100%;
+  height: calc(100vh - 48px - 172px - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .tabs-group{
   padding-left: $spacing-05;
 }
 
 .tab-panel--content{
-  margin: $spacing-09 0;
+  margin: $spacing-05 0;
   gap: $spacing-07;
 
   .cds--css-grid-column{
@@ -104,12 +135,13 @@
 }
 
 .tabs-page{
+  margin-right: 0;
   margin-left: -$spacing-07;
   margin-top: -40px;
 }
 
 .page__content{
-  margin: $spacing-09 0;
+  margin: $spacing-07 0;
 }
 
 .card__grid{

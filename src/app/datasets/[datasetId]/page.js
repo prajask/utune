@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import {
@@ -12,16 +11,16 @@ import {
     Tab,
     TabList,
     TabPanels,
-    TabPanel
+    TabPanel,
+    Button
 } from '@carbon/react';
 
 import {
+    Add,
     Analytics
 } from '@carbon/icons-react';
 
 const DatasetDetails = ({ params }) => {
-    console.log(`http://localhost:3333/datasets/${params.datasetId}`);
-
     const [dataset, setDataset] = useState(null)
  
     useEffect(() => {
@@ -36,25 +35,54 @@ const DatasetDetails = ({ params }) => {
   return (
     dataset &&
     <Grid fullWidth>
-        <Column lg={16} md={8} sm={4} className="page__banner page__banner--datasets">
-            <Breadcrumb noTrailingSlash>
-                <BreadcrumbItem>
-                    <a href="/">Playground</a>
-                </BreadcrumbItem>
-                <BreadcrumbItem>
-                    <a href="/datasets">Datasets</a>
-                </BreadcrumbItem>
-                <BreadcrumbItem isCurrentPage>
-                    <a href={`/datasets/${dataset.id}`}>{dataset.name}</a>
-                </BreadcrumbItem>
-            </Breadcrumb>
+        <Column lg={16} md={8} sm={4} className="page__banner">
+            <Grid fullWidth>
+              <Column Column lg={16} md={8} sm={4}>
+                <Breadcrumb noTrailingSlash>
+                    <BreadcrumbItem>
+                        <a href="/">Playground</a>
+                    </BreadcrumbItem>
 
-            <h1 className="page__banner--heading page__banner--heading-with-tabs">
-                <Analytics
-                    size={24}
-                />
-                {dataset.name}
-            </h1>
+                    <BreadcrumbItem>
+                        <a href="/datasets">Datasets</a>
+                    </BreadcrumbItem>
+
+                    <BreadcrumbItem isCurrentPage>
+                        <a href={`/datasets/${dataset.id}`}>{dataset.name}</a>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+              </Column>
+
+              <Column lg={16} md={8} sm={4}
+                className='page__banner--heading-container1'
+              >
+                <span
+                  className="page__banner--heading1"
+                >
+                  <Analytics
+                    size={32}
+                  />
+
+                  <h2>
+                    {dataset.name}
+                  </h2>
+                </span>
+
+                <span
+                    className='page__banner--heading-button-set'
+                >
+                    <Button
+                        size='sm'
+                        kind='secondary' 
+                        renderIcon={Add}
+                        iconDescription="Add this dataset to a project"
+                        onClick={() => {}}
+                    >
+                        Add to Project
+                    </Button>
+                </span>
+              </Column>
+            </Grid>
         </Column>
         
         <Column lg={16} md={8} sm={4} className="tabs-page">

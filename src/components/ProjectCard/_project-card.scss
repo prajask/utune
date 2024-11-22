@@ -1,6 +1,32 @@
 @use '@carbon/react/scss/theme' as *;
 @use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/colors';
 
-.project-card:hover{
-    background-image: linear-gradient(to top, #CCB1FA 13%, #E3D6FC 70%);
+.project-card{
+    box-sizing: border-box;
+}
+
+// .project-card:hover{
+//     // background-image: linear-gradient(to top, #CCB1FA 13%, #E3D6FC 70%);
+//     background: none;
+//     border: 2px solid colors.$blue-60;
+// }
+
+.project-card--heading{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include type-style('productive-heading-03');
+}
+
+.project-card--description{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include type-style('helper-text-02');
 }

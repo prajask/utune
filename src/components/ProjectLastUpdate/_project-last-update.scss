@@ -1,16 +1,15 @@
 @use '@carbon/react/scss/spacing' as *;
 @use '@carbon/react/scss/type' as *;
-@use '@carbon/react/scss/theme' as *;
 
-.creationdate {
+.project--last-updation-date {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  gap: $spacing-02;
+  gap: $spacing-03;
 
   p{
     @include type-style('helper-text-01');
-    color: $text-secondary;
   }
 }
+

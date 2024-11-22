@@ -18,7 +18,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    @include type-style('productive-heading-02');
+    @include type-style('productive-heading-03');
 }
 
 .card--description{
@@ -27,5 +27,5 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    @include type-style('body-02');
+    @include type-style('helper-text-02');
 }

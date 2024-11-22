@@ -2,10 +2,6 @@
 
 @use './overrides.scss';
 
-.page__banner--projects{
-    border-bottom: 2px solid #CCB1FA;
-}
-
 .page__banner--heading--projects{
     width: 100%;
     display: flex;
@@ -15,6 +11,8 @@
 }
 
 .projects-icon-button{
+    height: 100%;
+    width: 100%;
     padding-top: 0;
     align-items: center;
     justify-content: center;
@@ -29,4 +27,8 @@
 
 .hyperparameters{
     gap: $spacing-07;
+}
+
+.fine-tuning--progress-bar{
+    margin-bottom: $spacing-07;
 }

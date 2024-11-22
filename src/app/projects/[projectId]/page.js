@@ -30,13 +30,13 @@ import {
     Tools
 } from '@carbon/icons-react';
 
+import { LollipopChart } from '@carbon/charts-react';
 import '@carbon/charts-react/styles.css';
 
 import HyperparameterDescription from '@/components/HyperparameterDescription/HyperparameterDescription';
 import ProjectBaseModel from '@/components/ProjectBaseModel/ProjectBaseModel';
 import ProjectDatasetsList from '@/components/ProjectDatasetsList/ProjectDatasetsList';
 import ProjectAddDataset from '@/components/ProjectAddDataset/ProjectAddDataset';
-import { LollipopChart } from '@carbon/charts-react';
 
 const ProjectDetails = ({ params }) => {
 
@@ -128,6 +128,7 @@ const ProjectDetails = ({ params }) => {
                 scaleType: 'linear',
             },
         },
+        legend: false,
         height: '400px',
       }
     
@@ -150,6 +151,7 @@ const ProjectDetails = ({ params }) => {
                     clearInterval(intervalIdRef.current);
                     setRunning(false);
                     setRunEnabled(true);
+                    setActiveTabIndex(0);
                     return 100;
                 }
                 return newProgress;
@@ -168,9 +170,12 @@ const ProjectDetails = ({ params }) => {
       }, [progress, chartData])
 
       function fineTune(){
+        setActiveTabIndex(4);
         setRunning(true);
         setRunEnabled(false);
       }
+
+      const [activeTabIndex, setActiveTabIndex] = useState(0);
 
     const hyperparameters = [
         {
@@ -199,98 +204,110 @@ const ProjectDetails = ({ params }) => {
     project &&
     <Grid fullWidth>
         <Column lg={16} md={8} sm={4} 
-            className="page__banner page__banner--projects"
+            className="page__banner"
         >
-            <Breadcrumb noTrailingSlash>
-                <BreadcrumbItem>
-                    <a href="/">Playground</a>
-                </BreadcrumbItem>
+            <Grid fullWidth>
+              <Column Column lg={16} md={8} sm={4}>
+                <Breadcrumb noTrailingSlash>
+                    <BreadcrumbItem>
+                        <a href="/">Playground</a>
+                    </BreadcrumbItem>
 
-                <BreadcrumbItem>
-                    <a href="/projects">Projects</a>
-                </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <a href="/projects">Projects</a>
+                    </BreadcrumbItem>
 
-                <BreadcrumbItem isCurrentPage>
-                    <a href={`/projects/${project.id}`}>{projectName}</a>
-                </BreadcrumbItem>
-            </Breadcrumb>
+                    <BreadcrumbItem isCurrentPage>
+                        <a href={`/projects/${project.id}`}>{projectName}</a>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+              </Column>
 
-            <Grid
-                fullWidth
-            >
-                <Column lg={13} md={8} sm={4}>
-                    <Form
-                        className='page__banner--heading--projects'
-                    >
-                        <h1 
-                            className="page__banner--heading page__banner--heading-with-tabs"
-                            style={{
-                                justifyContent: editProjectName && "space-between",
-                                width: editProjectName && '100%'
-                            }}
-                        >
-                            <Tuning
-                                size={24}
-                            />
+              <Column lg={16} md={8} sm={4}
+                className='page__banner--heading-container1'
+              >
+                <span
+                  className="page__banner--heading1"
+                  style={
+                    {
+                        flexGrow: editProjectName && '1'
+                    }
+                }
+                >
+                  <Tuning
+                    size={32}
+                  />
 
+                  {
+                    editProjectName
+                    ? <Form
+                        style={
                             {
-                                editProjectName
-                                ? <TextInput 
-                                    id="project-name" 
-                                    type="text"
-                                    value={projectNameInput}
-                                    onChange={(e) => setProjectNameInput(e.target.value)}
-                                    style={
-                                        {
-                                            flexGrow: editProjectName && '1',
-                                            width: editProjectName && '100%'
-                                        }
-                                    }
-                                />
-                                : <span>
-                                    {projectName}
-                                </span>
+                                flexGrow: '1'
                             }
-                        </h1>
-
-                        {
-                            editProjectName
-                            ? <>
-                                <Button
-                                    className='projects-icon-button'
-                                    kind='ghost' 
-                                    renderIcon={() => <Save size={24} />}
-                                    iconDescription="Save Project Name" 
-                                    hasIconOnly 
-                                    onClick={patchProjectName} 
-                                />
-                                
-                                <Button
-                                    className='projects-icon-button'
-                                    kind='ghost' 
-                                    renderIcon={() => <Close size={24} />}
-                                    iconDescription="Close" 
-                                    hasIconOnly 
-                                    onClick={() => setEditProjectName(false)} 
-                                />
-                            </>
-
-                            : <Button
-                                className='projects-icon-button'
-                                kind='ghost' 
-                                renderIcon={() => <Edit size={24} />}
-                                iconDescription="Edit Project Name" 
-                                hasIconOnly 
-                                onClick={() => setEditProjectName(true)} 
-                            />
                         }
+                    >
+                        <TextInput 
+                            id="project-name" 
+                            type="text"
+                            value={projectNameInput}
+                            onChange={(e) => setProjectNameInput(e.target.value)}
+                            style={
+                                {
+                                    width: "100%"
+                                }
+                            }
+                        />
                     </Form>
-                </Column>
 
-                <Column lg={{offset: 14, span: 2}} md={8} sm={8}
-                    className='page__banner--buttons'
+                    : <h2>
+                        {projectName}
+                    </h2>
+                  }
+
+                  {
+                    editProjectName
+                    ? <span
+                        className='page__banner--heading-button-set'
+                    >
+                        <Button
+                            size='sm'
+                            className='projects-icon-button1'
+                            kind='ghost' 
+                            renderIcon={() => <Save size={24} />}
+                            iconDescription="Save Project Name" 
+                            hasIconOnly 
+                            onClick={patchProjectName} 
+                        />
+
+                        <Button
+                            size='sm'
+                            className='projects-icon-button1'
+                            kind='ghost' 
+                            renderIcon={() => <Close size={24} />}
+                            iconDescription="Close" 
+                            hasIconOnly 
+                            onClick={() => setEditProjectName(false)} 
+                        />
+                    </span>
+
+                    : <Button
+                        size='sm'
+                        className='projects-icon-button1'
+                        kind='ghost' 
+                        renderIcon={() => <Edit size={24} />}
+                        iconDescription="Edit Project Name" 
+                        hasIconOnly 
+                        onClick={() => setEditProjectName(true)} 
+                    />
+                  }
+                </span>
+
+                <span
+                    className='page__banner--heading-button-set'
                 >
                     <Button
+                        size='sm'
                         kind='secondary' 
                         renderIcon={Tools}
                         iconDescription="Fine Tune with Selected Settings"
@@ -299,15 +316,17 @@ const ProjectDetails = ({ params }) => {
                     >
                         Run
                     </Button>
-                </Column>
+                </span>
+              </Column>
             </Grid>
         </Column>
         
         <Column lg={16} md={8} sm={4} 
             className="tabs-page"
         >
-            <Tabs 
-                defaultSelectedIndex={0}
+            <Tabs
+                selectedIndex={activeTabIndex}
+                onChange={(e) => setActiveTabIndex(e.selectedIndex)}
             >
                 <TabList
                     className="tabs-group"
@@ -344,7 +363,6 @@ const ProjectDetails = ({ params }) => {
                                         editProjectDescription
                                         ? <>
                                             <Button
-                                                size='sm'
                                                 kind='ghost' 
                                                 renderIcon={Save}
                                                 iconDescription="Save Project Description" 
@@ -354,7 +372,6 @@ const ProjectDetails = ({ params }) => {
                                             />
 
                                             <Button
-                                            size='sm'
                                                 kind='ghost' 
                                                 renderIcon={Close}
                                                 iconDescription="Close" 
@@ -465,6 +482,7 @@ const ProjectDetails = ({ params }) => {
                                         label="Fine-Tuning Progress"
                                         value={progress}
                                         max={100}
+                                        className='fine-tuning--progress-bar'
                                     />
                                 </Column>
 

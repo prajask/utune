@@ -15,11 +15,23 @@ const PlaygroundLink = (props) => {
         className={`${props.link.classname} playground-link`}
     >
         <div className="playground-link--content">
-            <h4>{props.link.title}</h4>
+            <h4
+                className="playground-link--heading"
+            >
+                {
+                    props.link.icon
+                }
 
-            {
-                props.link.pictogram
-            }
+                {props.link.title}
+            </h4>
+
+            <p
+                className="playground-link--description"
+            >
+                {props.link.description}
+            </p>
+
+            {/* <ArrowRight size={24} className="card--right-arrow"/> */}
         </div>
     </ClickableTile>
   )

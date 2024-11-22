@@ -4,7 +4,7 @@ const CreationDate = (props) => {
       className="creationdate"
     >
       <p>
-        Created in
+        Released in:
       </p>
 
       <p>

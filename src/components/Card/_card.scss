@@ -1,12 +1,13 @@
 @use '@carbon/react/scss/theme' as *;
 @use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors';
 
 @use './overrides.scss';
 
 .card{
     margin-left: -16px;
     border: 1px solid $border-tile-01;
-    background: none;
+    background: colors.$gray-10;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -14,10 +15,15 @@
     gap: $spacing-05;
   }
 
-.card--models:hover{
-    background-image: linear-gradient(to top, #65D2D1 13%, #9FEAED 70%);
-}
+// .card:hover{
+//     background: none;
+//     border: 2px solid colors.$blue-60;
+// }
 
-.card--datasets:hover{
-    background-image: linear-gradient(to top, #9FC0FA 13%, #CDDDFC 70%);
-}
+// .card--models:hover{
+//     background-image: linear-gradient(to top, #65D2D1 13%, #9FEAED 70%);
+// }
+
+// .card--datasets:hover{
+//     background-image: linear-gradient(to top, #9FC0FA 13%, #CDDDFC 70%);
+// }

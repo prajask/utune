@@ -1,15 +1,21 @@
 @use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors';
+@use '@carbon/react/scss/type' as *;
 
 .hyperparameter-description {
     background: none;
   }
   
-  .hyperparameter-description--header {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: $spacing-05;
-  }
+.hyperparameter-description--header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: $spacing-05;
+}
+
+.hyperparameter-description--title{
+  @include type-style('productive-heading-02');
+}
 
 .hyperparameter-description--header--button{
     border: none;
@@ -17,6 +23,7 @@
     text-align: left;
     cursor: pointer;
     background: none;
+    color: colors.$blue-60;
 }
   
   .hyperparameter-description--content {

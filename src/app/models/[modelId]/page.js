@@ -11,10 +11,13 @@ import {
     Tab,
     TabList,
     TabPanels,
-    TabPanel
+    TabPanel,
+    ExpandableSearch,
+    Button
 } from '@carbon/react';
 
 import {
+    Add,
     ModelAlt
 } from '@carbon/icons-react';
 
@@ -36,25 +39,52 @@ const ModelDetails = ({ params }) => {
   return (
     model &&
     <Grid fullWidth>
-        <Column lg={16} md={8} sm={4} className="page__banner page__banner--models">
-            <Breadcrumb noTrailingSlash>
-                <BreadcrumbItem>
-                    <a href="/">Playground</a>
-                </BreadcrumbItem>
-                <BreadcrumbItem>
-                    <a href="/models">Models</a>
-                </BreadcrumbItem>
-                <BreadcrumbItem isCurrentPage>
-                    <a href={`/models/${model.id}`}>{model.name}</a>
-                </BreadcrumbItem>
-            </Breadcrumb>
+        <Column lg={16} md={8} sm={4} className="page__banner">
+            <Grid fullWidth>
+              <Column Column lg={16} md={8} sm={4}>
+                <Breadcrumb noTrailingSlash>
+                    <BreadcrumbItem>
+                        <a href="/">Playground</a>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <a href="/models">Models</a>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem isCurrentPage>
+                        <a href={`/models/${model.id}`}>{model.name}</a>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+              </Column>
 
-            <h1 className="page__banner--heading page__banner--heading-with-tabs">
-                <ModelAlt
+              <Column lg={16} md={8} sm={4}
+                className='page__banner--heading-container1'
+              >
+                <span
+                  className="page__banner--heading1"
+                >
+                  <ModelAlt
                     size={32}
-                />
-                {model.name}
-            </h1>
+                  />
+
+                  <h2>
+                    {model.name}
+                  </h2>
+                </span>
+
+                <span
+                  className='page__banner--heading-button-set'
+                >
+                  <Button
+                    size='sm'
+                    kind='secondary' 
+                    renderIcon={Add}
+                    iconDescription="Add this model to a project"
+                    onClick={() => {}}
+                  >
+                    Add to Project
+                  </Button>
+                </span>
+              </Column>
+            </Grid>
         </Column>
         
         <Column lg={16} md={8} sm={4} className="tabs-page">
@@ -65,9 +95,8 @@ const ModelDetails = ({ params }) => {
                     className="tabs-group"
                 >
                     <Tab>Overview</Tab>
-                    <Tab>Test</Tab>
-                    <Tab>Hyperparameters</Tab>
-                    <Tab>Iterations</Tab>
+                    <Tab>Reviews</Tab>
+                    <Tab>Community</Tab>
                 </TabList>
 
                 <TabPanels>

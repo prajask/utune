@@ -8,11 +8,15 @@ import {
   BreadcrumbItem,
   Grid,
   Column,
-  SkeletonPlaceholder
+  Loading,
+  Button,
+  ExpandableSearch
 } from '@carbon/react';
 
 import{
-  ModelAlt
+  ModelAlt,
+  Filter,
+  ArrowsVertical
 } from '@carbon/icons-react';
 
   const ModelsPage = () => {
@@ -29,23 +33,73 @@ import{
     }, [])
 
     return (
-      <Grid className="page" fullWidth>
-        <Column lg={16} md={8} sm={4} className="page__banner page__banner--models">
-          <Breadcrumb noTrailingSlash>
-            <BreadcrumbItem>
-              <a href="/">Playground</a>
-            </BreadcrumbItem>
-            <BreadcrumbItem isCurrentPage>
-              <a href="/models">Models</a>
-            </BreadcrumbItem>
-          </Breadcrumb>
-          <h1 className="page__banner--heading">
-            <ModelAlt
-              size={32}
-            />
-            Models
-          </h1>
+      <Grid fullWidth>
+        <Column lg={16} md={8} sm={4} className="page__banner">
+        <Grid fullWidth>
+            <Column Column lg={16} md={8} sm={4}>
+              <Breadcrumb noTrailingSlash>
+                <BreadcrumbItem>
+                  <a href="/">Playground</a>
+                </BreadcrumbItem>
+
+                <BreadcrumbItem isCurrentPage>
+                  <a href="/models">Models</a>
+                </BreadcrumbItem>
+              </Breadcrumb>
+            </Column>
+
+            <Column lg={16} md={8} sm={4}
+              className='page__banner--heading-container1'
+            >
+              <span
+                className="page__banner--heading1"
+              >
+                <ModelAlt
+                  size={32}
+                />
+
+                <h2>
+                  Models
+                </h2>
+              </span>
+
+              <span
+                  className='page__banner--heading-button-set'
+                >
+                  <ExpandableSearch size="sm" labelText="Search" closeButtonLabelText="Clear search input" id="search-expandable-1" onChange={() => {}} onKeyDown={() => {}} />
+
+                  <Button
+                    size='sm'
+                    kind='secondary' 
+                    renderIcon={Filter}
+                    iconDescription="Filter Datasets"
+                    onClick={() => {}}
+                  >
+                    Filter
+                  </Button>
+
+                  <Button
+                    size='sm'
+                    kind='secondary' 
+                    renderIcon={ArrowsVertical}
+                    iconDescription="Sort Datasets"
+                    onClick={() => {}}
+                  >
+                    Sort
+                  </Button>
+                </span>
+            </Column>
+
+            <Column Column lg={16} md={8} sm={4}>
+              <p
+                className='page__banner--description'
+              >
+                  Browse models and easily add them to your projects.
+              </p>
+            </Column>
+          </Grid>
         </Column>
+
         <Column lg={16} md={8} sm={4} className='page__content'>
           <Grid className='card__grid'>
             {
@@ -56,7 +110,15 @@ import{
                 </Column>
               )
               )
-              : <SkeletonPlaceholder />
+              : <Column lg={16} md={8} sm={4}>
+                  <div
+                    className='page--loading'
+                  >
+                    <Loading
+                      withOverlay={false}
+                    />
+                  </div>
+              </Column>
             }
           </Grid>
         </Column>

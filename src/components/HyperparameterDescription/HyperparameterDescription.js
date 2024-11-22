@@ -20,7 +20,9 @@ const HyperparameterDescription = (props) => {
         >
             {props.hyperparameter.icon}
 
-            <span>
+            <span
+                className="hyperparameter-description--title"
+            >
                 {props.hyperparameter.title}
             </span>
 

@@ -1,0 +1,10 @@
+@use '@carbon/react/scss/theme' as *;
+
+.new-project-card{
+    margin-left: -16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: 1px dashed $border-subtle-01;
+}
