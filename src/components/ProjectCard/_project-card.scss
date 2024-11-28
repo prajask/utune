@@ -7,11 +7,9 @@
     box-sizing: border-box;
 }
 
-// .project-card:hover{
-//     // background-image: linear-gradient(to top, #CCB1FA 13%, #E3D6FC 70%);
-//     background: none;
-//     border: 2px solid colors.$blue-60;
-// }
+.project-card:hover{
+    border: 1px solid colors.$blue-60;
+}
 
 .project-card--heading{
     display: -webkit-box;
