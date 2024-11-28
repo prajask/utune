@@ -66,15 +66,21 @@
   border-bottom: 2px solid $border-subtle-02;
 }
 
+// .page__banner--heading-container{
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
+
 .page__banner--heading-container{
-  width: 100%;
+  padding-top: $spacing-05;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.page__banner--heading {
-  padding-top: $spacing-05;
+.page__banner--heading{
   @include type-style('productive-heading-05');
   display: flex;
   align-items: center;

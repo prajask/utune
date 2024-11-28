@@ -49,10 +49,10 @@ import{
             </Column>
 
             <Column lg={16} md={8} sm={4}
-              className='page__banner--heading-container1'
+              className='page__banner--heading-container'
             >
               <span
-                className="page__banner--heading1"
+                className="page__banner--heading"
               >
                 <ModelAlt
                   size={32}
@@ -65,29 +65,29 @@ import{
 
               <span
                   className='page__banner--heading-button-set'
+              >
+                <ExpandableSearch size="sm" labelText="Search" closeButtonLabelText="Clear search input" id="search-expandable-1" onChange={() => {}} onKeyDown={() => {}} />
+
+                <Button
+                  size='sm'
+                  kind='secondary' 
+                  renderIcon={Filter}
+                  iconDescription="Filter Datasets"
+                  onClick={() => {}}
                 >
-                  <ExpandableSearch size="sm" labelText="Search" closeButtonLabelText="Clear search input" id="search-expandable-1" onChange={() => {}} onKeyDown={() => {}} />
+                  Filter
+                </Button>
 
-                  <Button
-                    size='sm'
-                    kind='secondary' 
-                    renderIcon={Filter}
-                    iconDescription="Filter Datasets"
-                    onClick={() => {}}
-                  >
-                    Filter
-                  </Button>
-
-                  <Button
-                    size='sm'
-                    kind='secondary' 
-                    renderIcon={ArrowsVertical}
-                    iconDescription="Sort Datasets"
-                    onClick={() => {}}
-                  >
-                    Sort
-                  </Button>
-                </span>
+                <Button
+                  size='sm'
+                  kind='secondary' 
+                  renderIcon={ArrowsVertical}
+                  iconDescription="Sort Datasets"
+                  onClick={() => {}}
+                >
+                  Sort
+                </Button>
+              </span>
             </Column>
 
             <Column Column lg={16} md={8} sm={4}>

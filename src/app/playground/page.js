@@ -67,75 +67,95 @@ const page = () => {
         },
     ]
 
-  return (
-    <Grid fullWidth>
-        <Column lg={16} md={8} sm={4} className="page__banner">
-            <Breadcrumb noTrailingSlash>
-                <BreadcrumbItem>
-                    <a href="/">Playground</a>
-                </BreadcrumbItem>
-            </Breadcrumb>
+    return (
+        <Grid fullWidth>
+            <Column lg={16} md={8} sm={4} className="page__banner">
+                <Grid fullWidth>
+                    <Column Column lg={16} md={8} sm={4}>
+                        <Breadcrumb noTrailingSlash>
+                            <BreadcrumbItem>
+                                <a href="/">Playground</a>
+                            </BreadcrumbItem>
+                        </Breadcrumb>
+                    </Column>
 
-            <h1 className="page__banner--heading">
-                <IbmGranite
-                    size={32}
-                />
-                
-                Playground
-            </h1>
-
-            <p
-                className='page__banner--description'
-            >
-                Explore, learn, and build—your place for projects, models, datasets and tutorials.
-            </p>
-        </Column>
-        
-        <Column lg={16} md={8} sm={4} className='page__content'>
-            <Grid fullWidth>
-                {
-                    links.map(
-                        (link) => (
-                            <Column lg={4} md={4} sm={4}
-                                key={link.title}
-                            >
-                                <PlaygroundLink
-                                    link={link}
-                                />
-                            </Column>
-                        )
-                    )
-                }
-
-                <Column lg={16} md={8} sm={4}>
-                    <h3
-                        className='explore-section--heading'
+                    <Column lg={16} md={8} sm={4}
+                    className='page__banner--heading-container'
                     >
-                        Explore
-                    </h3>
-                </Column>
+                        <span
+                            className="page__banner--heading"
+                            style={
+                            {
+                                flexGrow: '1',
+                                width: '50%'
+                            }
+                            }
+                        >
+                            <IbmGranite
+                            size={32}
+                            />
 
-                <Column lg={16} md={8} sm={4}>
-                    <Grid fullWidth>
-                        {
-                            EXPLORE_LINKS.map(
-                                (link) => (
-                                    <Column lg={8} md={8} sm={8}
-                                        key={link.title}
-                                    >
-                                        <PlaygroundLink
-                                            link={link}
-                                        />
-                                    </Column>
-                                )
+                            <h2>
+                            Playground
+                            </h2>
+                        </span>
+                    </Column>
+
+                    <Column Column lg={16} md={8} sm={4}>
+                        <p
+                            className='page__banner--description'
+                        >
+                            Explore, learn, and build—your place for projects, models, datasets and tutorials.
+                        </p>
+                    </Column>
+                </Grid>
+            </Column>
+
+            <Column lg={16} md={8} sm={4} className='page__content'>
+                <Grid fullWidth>
+                    {
+                        links.map(
+                            (link) => (
+                                <Column lg={4} md={4} sm={4}
+                                    key={link.title}
+                                >
+                                    <PlaygroundLink
+                                        link={link}
+                                    />
+                                </Column>
                             )
-                        }
-                    </Grid>
-                </Column>
-            </Grid>
-        </Column>
-    </Grid>
-  )
+                        )
+                    }
+
+                    <Column lg={16} md={8} sm={4}>
+                        <h3
+                            className='explore-section--heading'
+                        >
+                            Explore
+                        </h3>
+                    </Column>
+
+                    <Column lg={16} md={8} sm={4}>
+                        <Grid fullWidth>
+                            {
+                                EXPLORE_LINKS.map(
+                                    (link) => (
+                                        <Column lg={8} md={8} sm={8}
+                                            key={link.title}
+                                        >
+                                            <PlaygroundLink
+                                                link={link}
+                                            />
+                                        </Column>
+                                    )
+                                )
+                            }
+                        </Grid>
+                    </Column>
+                </Grid>
+            </Column>
+        </Grid>
+    )
 }
 
 export default page

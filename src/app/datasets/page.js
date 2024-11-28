@@ -50,10 +50,10 @@ import {
               </Column>
 
               <Column lg={16} md={8} sm={4}
-                className='page__banner--heading-container1'
+                className='page__banner--heading-container'
               >
                 <span
-                  className="page__banner--heading1"
+                  className="page__banner--heading"
                 >
                   <Analytics
                     size={32}
@@ -95,7 +95,7 @@ import {
                 <p
                   className='page__banner--description'
                 >
-                    Browse datasets  and easily add them to your projects.
+                  Browse datasets  and easily add them to your projects.
                 </p>
               </Column>
             </Grid>
@@ -109,7 +109,7 @@ import {
                 <Column md={4} lg={8} sm={4} key={dataset.id}>
                   <Card data={dataset} />
                 </Column>
-              )
+                )
               )
               : <Column lg={16} md={8} sm={4}>
                   <div

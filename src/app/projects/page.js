@@ -48,10 +48,10 @@ const page = () => {
               </Column>
 
               <Column lg={16} md={8} sm={4}
-                className='page__banner--heading-container1'
+                className='page__banner--heading-container'
               >
                 <span
-                  className="page__banner--heading1"
+                  className="page__banner--heading"
                 >
                   <Tuning
                     size={32}

@@ -16,7 +16,7 @@ const ModelNutrition = (props) => {
             />
         </Column>
         
-        <Column lg={{offset: 7, span: 9}} md={8} sm={8}>
+        <Column lg={{offset: 7, span: 8}} md={8} sm={8}>
           <NutritionLabelGuide />
         </Column>
     </Grid>
