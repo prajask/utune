@@ -18,9 +18,11 @@ import ProjectCard from '@/components/ProjectCard/ProjectCard';
 const ProjectsPage = () => {
   const [projects, setProjects] = useState(null);
 
+  const PROJECTS_API_PATH = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_PROJECTS_PATH}`;
+
   useEffect(() => {
     async function fetchProjects() {
-      let res = await fetch('http://localhost:3333/projects');
+      let res = await fetch(PROJECTS_API_PATH);
       let data = await res.json();
       setProjects(data);
     }

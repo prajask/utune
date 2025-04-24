@@ -26,10 +26,12 @@ import ModelNutrition from '@/components/ModelNutrition/ModelNutrition';
 const ModelDetails = ({ params }) => {
 
     const [model, setModel] = useState(null)
+
+    const MODEL_API_PATH = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_MODELS_PATH}/${params.modelId}`;
  
     useEffect(() => {
       async function fetchModel() {
-        let res = await fetch(`http://localhost:3333/models/${params.modelId}`)
+        let res = await fetch(MODEL_API_PATH)
         let data = await res.json()
         setModel(data)
       }

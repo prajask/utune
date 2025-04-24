@@ -22,10 +22,12 @@ import{
   const ModelsPage = () => {
 
     const [models, setModels] = useState(null)
+
+    const MODELS_API_PATH = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_MODELS_PATH}`;
  
     useEffect(() => {
       async function fetchModels() {
-        let res = await fetch('http://localhost:3333/models')
+        let res = await fetch(MODELS_API_PATH)
         let data = await res.json()
         setModels(data)
       }

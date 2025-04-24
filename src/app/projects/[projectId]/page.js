@@ -42,9 +42,11 @@ const ProjectDetails = ({ params }) => {
 
     const [project, setProject] = useState(null);
 
+    const PROJECT_API_PATH = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_PROJECTS_PATH}/${params.projectId}`;
+
     useEffect(() => {
         async function fetchProject() {
-            let res = await fetch(`http://localhost:3333/projects/${params.projectId}`);
+            let res = await fetch(PROJECT_API_PATH);
             let data = await res.json();
             setProject(data);
             
@@ -66,7 +68,7 @@ const ProjectDetails = ({ params }) => {
 
     async function patchProjectName() {
         try{
-            let res = await fetch(`http://localhost:3333/projects/${params.projectId}`,
+            let res = await fetch(PROJECT_API_PATH,
                 {
                     method: "PATCH",
                     headers: {
@@ -91,7 +93,7 @@ const ProjectDetails = ({ params }) => {
 
     async function patchProjectDescription() {
         try{
-            let res = await fetch(`http://localhost:3333/projects/${params.projectId}`,
+            let res = await fetch(PROJECT_API_PATH,
                 {
                     method: "PATCH",
                     headers: {

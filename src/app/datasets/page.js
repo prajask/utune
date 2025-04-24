@@ -23,10 +23,12 @@ import {
   const DatasetsPage = () => {
 
     const [datasets, setDatasets] = useState(null)
+
+    const DATASETS_API_PATH = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_DATASETS_PATH}`;
  
     useEffect(() => {
       async function fetchDatasets() {
-        let res = await fetch('http://localhost:3333/datasets')
+        let res = await fetch(DATASETS_API_PATH)
         let data = await res.json()
         setDatasets(data)
       }
